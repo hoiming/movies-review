@@ -48,13 +48,13 @@ export default class ReviewsController{
 
     static async apiDeleteReview(req, res, next){
         try{
-            const reviewId = req.body.review_id
+            const reviewId = req.body.id
             const userId = req.body.user_id
             const ReviewResponse = await ReviewsDAO.deleteReview(
                 reviewId,
                 userId,
             )
-            res.json({status: "success"})
+            res.json({ReviewResponse, status: "success"})
         }catch(e){
             res.status(500).json({error: e.message})
         }

@@ -50,7 +50,7 @@ export default class ReviewsDAO{
         try{
             const deleteResponse = await reviews.deleteOne({
                 _id: ObjectId.createFromHexString(reviewId),
-                user_id: user_id,
+                user_id: userId,
             })
             return deleteResponse
         }catch(e){
